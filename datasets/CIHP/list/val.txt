@@ -1,0 +1,5 @@
+/images/0002190.jpg /labels/0002190.png
+/images/0005008.jpg /labels/0005008.png
+/images/0012008.jpg /labels/0012008.png
+/images/0026375.jpg /labels/0026375.png
+/images/0032190.jpg /labels/0032190.png
