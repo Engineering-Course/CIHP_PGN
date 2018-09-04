@@ -5,7 +5,7 @@ Ke Gong, Xiaodan Liang, Yicheng Li, Yimin Chen, Ming Yang and Liang Lin, "Instan
 
 PGN is a state-of-art deep learning methord for semantic part segmentation, instance-aware edge detection and instance-level human parsing built on top of [Tensorflow](http://www.tensorflow.org).
 
-This distribution provides a publicly available implementation for the key model ingredients reported in our latest [paper](https://arxiv.org/pdf/1808.00157.pdf) which is accepted by ECCV 2018.
+This distribution provides a publicly available implementation for the key model ingredients reported in our latest [paper](http://openaccess.thecvf.com/content_ECCV_2018/papers/Ke_Gong_Instance-level_Human_Parsing_ECCV_2018_paper.pdf) which is accepted by ECCV 2018.
 
 
 ### Crowd Instance-level Human Parsing (CIHP) Dataset
