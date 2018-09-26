@@ -28,3 +28,4 @@ We have released our trained models of PGN on CIHP dataset at [google drive](htt
 3. For CIHP dataset, you need to generate the edge labels and left-right flipping labels (optional). We have provided a script for reference.
 4. Run train_pgn.py to train PGN.
 5. Use test_pgn.py to generate the results with the trained models.
+6. The instance tool is used for instance partition process from semantic part segmentation maps and instance-aware edge maps, which is written in MATLAB.
