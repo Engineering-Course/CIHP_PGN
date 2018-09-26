@@ -21,7 +21,7 @@ We have released our trained models of PGN on CIHP dataset at [google drive](htt
 2. Prepare the images and store in $HOME/datasets.
 3. Run test_pgn.py.
 4. The results are saved in $HOME/output
-5. You can evaluate the results with the provided [evaluation scripts](https://github.com/HCPLab-SYSU/ATEN/tree/master/evaluate) 
+5. Evaluation scripts are in $HOME/evaluation. Copy the groundtruth files (in _Instance_ids_ folder) into $HOME/evaluation/Instance_part_val before you run the script.
 
 ### Training
 1. Download the pre-trained model and store in $HOME/checkpoint.
