@@ -30,3 +30,9 @@ We have released our trained models of PGN on CIHP dataset at [google drive](htt
 4. Run train_pgn.py to train PGN.
 5. Use test_pgn.py to generate the results with the trained models.
 6. The instance tool is used for instance partition process from semantic part segmentation maps and instance-aware edge maps, which is written in MATLAB.
+
+## Related work
++ Self-supervised Structure-sensitive Learning [SSL](https://github.com/Engineering-Course/LIP_SSL)
++ Joint Body Parsing & Pose Estimation Network  [JPPNet](https://github.com/Engineering-Course/LIP_JPPNet)
++ Graphonomy: Universal Human Parsing via Graph Transfer Learning [Graphonomy](https://github.com/Gaoyiminggithub/Graphonomy)
+
