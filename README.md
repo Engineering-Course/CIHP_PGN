@@ -32,7 +32,7 @@ We have released our trained models of PGN on CIHP dataset at [google drive](htt
 6. The instance tool is used for instance partition process from semantic part segmentation maps and instance-aware edge maps, which is written in MATLAB.
 
 ## Related work
-+ Self-supervised Structure-sensitive Learning [SSL](https://github.com/Engineering-Course/LIP_SSL)
-+ Joint Body Parsing & Pose Estimation Network  [JPPNet](https://github.com/Engineering-Course/LIP_JPPNet)
-+ Graphonomy: Universal Human Parsing via Graph Transfer Learning [Graphonomy](https://github.com/Gaoyiminggithub/Graphonomy)
++ Self-supervised Structure-sensitive Learning [SSL](https://github.com/Engineering-Course/LIP_SSL), CVPR2017
++ Joint Body Parsing & Pose Estimation Network  [JPPNet](https://github.com/Engineering-Course/LIP_JPPNet), T-PAMI2018
++ Graphonomy: Universal Human Parsing via Graph Transfer Learning [Graphonomy](https://github.com/Gaoyiminggithub/Graphonomy), CVPR2019
 
