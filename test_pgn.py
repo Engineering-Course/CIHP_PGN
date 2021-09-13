@@ -107,7 +107,7 @@ def main():
     head_output, tail_output = tf.unstack(raw_output, num=2, axis=0)
     tail_list = tf.unstack(tail_output, num=20, axis=2)
     tail_list_rev = [None] * 20
-    for xx in xrange(14):
+    for xx in range(14):
         tail_list_rev[xx] = tail_list[xx]
     tail_list_rev[14] = tail_list[15]
     tail_list_rev[15] = tail_list[14]
