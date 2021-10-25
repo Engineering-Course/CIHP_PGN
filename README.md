@@ -10,7 +10,7 @@ This distribution provides a publicly available implementation for the key model
 
 ### Crowd Instance-level Human Parsing (CIHP) Dataset
 
-The PGN is trained and evaluated on our [CIHP dataset](http://www.sysu-hcp.net/lip) for isntance-level human parsing.  Please check it for more model details. The dataset is also available at [google drive](https://drive.google.com/drive/folders/0BzvH3bSnp3E9ZW9paE9kdkJtM3M?resourcekey=0-vgKJX42GVFaAwjhEWAncjQ&usp=sharing) and [baidu drive](http://pan.baidu.com/s/1nvqmZBN).
+The PGN is trained and evaluated on our [CIHP dataset](http://www.sysu-hcp.net/lip) for isntance-level human parsing.  Please check it for more model details. The dataset is also available at [google drive](https://drive.google.com/drive/folders/0BzvH3bSnp3E9QjVYZlhWSjltSWM?resourcekey=0-nkS8bDVjPs3bEw3UZW-omA&usp=sharing) and [baidu drive](http://pan.baidu.com/s/1nvqmZBN).
 
 ### Pre-trained models
 
