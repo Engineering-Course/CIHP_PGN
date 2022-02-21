@@ -7,7 +7,7 @@ import random
 from utils import *
 
 # Set gpus
-gpus = [0] 
+gpus = [0]
 os.environ["CUDA_VISIBLE_DEVICES"]=','.join([str(i) for i in gpus])
 num_gpus = len(gpus) # number of GPUs to use
 
@@ -32,9 +32,9 @@ p_Weight = 50
 e_Weight = 0.005
 Edge_Pos_W = 2
 with open(DATA_ID_LIST, 'r') as f:
-    TRAIN_SET = len(f.readlines())  
-SAVE_PRED_EVERY = TRAIN_SET / BATCH_SIZE + 1   # save model per epoch  (number of training set / batch)  
-NUM_STEPS = SAVE_PRED_EVERY * 100 + 1  # 100 epoch
+    TRAIN_SET = len(f.readlines())
+SAVE_PRED_EVERY = TRAIN_SET / BATCH_SIZE + 1   # save model per epoch  (number of training set / batch)
+NUM_STEPS = int(SAVE_PRED_EVERY) * 100 + 1  # 100 epoch
 
 
 
@@ -59,7 +59,7 @@ def main():
     learning_rate = tf.scalar_mul(base_lr, tf.pow((1 - step_ph / NUM_STEPS), POWER))
     optim = tf.train.MomentumOptimizer(learning_rate, MOMENTUM)
 
-    for i in xrange (num_gpus):
+    for i in range(num_gpus):
         with tf.device('/gpu:%d' % i):
             with tf.name_scope('Tower_%d' % (i)) as scope:
                 if i == 0:
@@ -127,10 +127,10 @@ def main():
                 neg_pixels = tf.subtract(total_pixels, pos_pixels)
                 pos_weight = tf.cast(tf.divide(neg_pixels, total_pixels), tf.float32)
                 neg_weight = tf.cast(tf.divide(pos_pixels, total_pixels), tf.float32)
-                 
+
                 parsing_mask = tf.cast(tf.greater(next_label, 0), tf.float32)
                 edge_gt = tf.cast(next_edge, tf.float32)
-                
+
                 t_loss_e1 = tf.nn.sigmoid_cross_entropy_with_logits(logits=edge_out1, labels=edge_gt)
                 loss_e1_pos_gb = tf.reduce_sum(tf.multiply(t_loss_e1, edge_pos_mask), [1, 2])
                 loss_e1_neg_gb = tf.reduce_sum(tf.multiply(t_loss_e1, edge_neg_mask), [1, 2])
@@ -176,13 +176,13 @@ def main():
                 loss_e1_res3_neg = (loss_e1_res3_neg_gb + loss_e1_res3_neg_lc) * neg_weight
                 loss_e1_res3 = tf.reduce_mean(loss_e1_res3_pos * Edge_Pos_W + loss_e1_res3_neg)
 
-                loss_parsing = loss_p1 + loss_p2 
+                loss_parsing = loss_p1 + loss_p2
                 loss_edge = loss_e1 + loss_e2 + loss_e1_res5 + loss_e1_res4 + loss_e1_res3
                 reduced_loss = loss_parsing * p_Weight + loss_edge * e_Weight
 
                 trainable_variable = tf.trainable_variables()
                 grads = optim.compute_gradients(reduced_loss, var_list=trainable_variable)
-                
+
                 tower_grads.append(grads)
 
                 tf.add_to_collection('loss_p', loss_parsing)
@@ -221,7 +221,7 @@ def main():
     if load(loader, sess, SNAPSHOT_DIR):
         print(" [*] Load SUCCESS")
     else:
-        print(" [!] Load failed...")    
+        print(" [!] Load failed...")
 
     # Start queue threads.
     threads = tf.train.start_queue_runners(coord=coord, sess=sess)
