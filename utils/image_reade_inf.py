@@ -18,8 +18,8 @@ def image_scaling(img):
 
     scale = tf.random_uniform([1], minval=0.5, maxval=2.0, dtype=tf.float32,
                               seed=None)
-    h_new = tf.to_int32(tf.multiply(tf.to_float(tf.shape(img)[0]), scale))
-    w_new = tf.to_int32(tf.multiply(tf.to_float(tf.shape(img)[1]), scale))
+    h_new = tf.cast(tf.multiply(tf.cast(tf.shape(img)[0],tf.float32), scale), tf.int32)
+    w_new = tf.cast(tf.multiply(tf.cast(tf.shape(img)[1],tf.float32), scale), tf.int32)
     new_shape = tf.squeeze(tf.stack([h_new, w_new]), squeeze_dims=[1])
     img = tf.image.resize_images(img, new_shape)
     # label = tf.image.resize_nearest_neighbor(tf.expand_dims(label, 0),
@@ -52,8 +52,8 @@ def image_mirroring(img):
 def random_resize_img_labels(image, label, resized_h, resized_w):
     scale = tf.random_uniform([1], minval=0.75, maxval=1.25, dtype=tf.float32,
                               seed=None)
-    h_new = tf.to_int32(tf.multiply(tf.to_float(resized_h), scale))
-    w_new = tf.to_int32(tf.multiply(tf.to_float(resized_w), scale))
+    h_new = tf.cast(tf.multiply(tf.cast(resized_h, tf.float32), scale) tf.int32)
+    w_new = tf.cast(tf.multiply(tf.cast(resized_w, tf.float32), scale) tf.int32)
 
     new_shape = tf.squeeze(tf.stack([h_new, w_new]), squeeze_dims=[1])
     img = tf.image.resize_images(image, new_shape)
@@ -64,7 +64,7 @@ def random_resize_img_labels(image, label, resized_h, resized_w):
 
 
 def resize_img_labels(image, label, resized_h, resized_w):
-    new_shape = tf.stack([tf.to_int32(resized_h), tf.to_int32(resized_w)])
+    new_shape = tf.stack([tf.cast(resized_h, tf.int32), tf.cast(resized_w, tf.int32)])
     img = tf.image.resize_images(image, new_shape)
     label = tf.image.resize_nearest_neighbor(tf.expand_dims(label, 0),
                                              new_shape)
