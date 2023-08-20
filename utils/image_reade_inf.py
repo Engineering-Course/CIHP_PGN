@@ -250,10 +250,7 @@ class ImageReader(object):
         self.images = tf.convert_to_tensor(self.image_list, dtype=tf.string)
         # self.labels = tf.convert_to_tensor(self.label_list, dtype=tf.string)
         # self.edges = tf.convert_to_tensor(self.edge_list, dtype=tf.string)
-        self.queue = tf.compat.v1.train.slice_input_producer([self.images],
-                                                              # self.labels,
-                                                              # self.edges],
-                                                             shuffle=shuffle)
+        self.queue = tf.data.Dataset.from_tensor_slices([self.images])
         print(self.queue)
         self.image = read_images_from_disk(self.queue, self.input_size,
                                                                   random_scale,
