@@ -56,12 +56,12 @@ def main():
         image_list = reader.image_list
 
     image_batch = tf.stack([image, image_rev])
-    h_orig, w_orig = tf.to_float(tf.shape(image_batch)[1]), tf.to_float(tf.shape(image_batch)[2])
-    image_batch050 = tf.image.resize_images(image_batch, tf.stack([tf.to_int32(tf.multiply(h_orig, 0.50)), tf.to_int32(tf.multiply(w_orig, 0.50))]))
-    image_batch075 = tf.image.resize_images(image_batch, tf.stack([tf.to_int32(tf.multiply(h_orig, 0.75)), tf.to_int32(tf.multiply(w_orig, 0.75))]))
-    image_batch125 = tf.image.resize_images(image_batch, tf.stack([tf.to_int32(tf.multiply(h_orig, 1.25)), tf.to_int32(tf.multiply(w_orig, 1.25))]))
-    image_batch150 = tf.image.resize_images(image_batch, tf.stack([tf.to_int32(tf.multiply(h_orig, 1.50)), tf.to_int32(tf.multiply(w_orig, 1.50))]))
-    image_batch175 = tf.image.resize_images(image_batch, tf.stack([tf.to_int32(tf.multiply(h_orig, 1.75)), tf.to_int32(tf.multiply(w_orig, 1.75))]))
+    h_orig, w_orig = tf.cast(tf.shape(image_batch)[1], tf.float32), tf.cast(tf.shape(image_batch)[2], tf.float32)
+    image_batch050 = tf.image.resize_images(image_batch, tf.stack([tf.cast(tf.multiply(h_orig, 0.50), tf.int32), tf.cast(tf.multiply(w_orig, 0.50), tf.int32)]))
+    image_batch075 = tf.image.resize_images(image_batch, tf.stack([tf.cast(tf.multiply(h_orig, 0.75), tf.int32), tf.cast(tf.multiply(w_orig, 0.75), tf.int32)]))
+    image_batch125 = tf.image.resize_images(image_batch, tf.stack([tf.cast(tf.multiply(h_orig, 1.25), tf.int32), tf.cast(tf.multiply(w_orig, 1.25), tf.int32)]))
+    image_batch150 = tf.image.resize_images(image_batch, tf.stack([tf.cast(tf.multiply(h_orig, 1.50), tf.int32), tf.cast(tf.multiply(w_orig, 1.50), tf.int32)]))
+    image_batch175 = tf.image.resize_images(image_batch, tf.stack([tf.cast(tf.multiply(h_orig, 1.75), tf.int32), tf.cast(tf.multiply(w_orig, 1.75), tf.int32)]))
          
     # Create network.
     with tf.variable_scope('', reuse=False):
