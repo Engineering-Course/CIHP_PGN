@@ -190,7 +190,7 @@ def read_images_from_disk(input_queue, input_size, random_scale,
       Two tensors: the decoded image and its mask.
     """
 
-    img_contents = tf.io.read_file(input_queue[0])
+    img_contents = tf.io.read_file(input_queue)
     # label_contents = tf.io.read_file(input_queue[1])
     # edge_contents = tf.io.read_file(input_queue[2])
 
