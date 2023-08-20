@@ -1,6 +1,6 @@
 import numpy as np
 import tensorflow as tf
-slim = tf.contrib.slim
+import tf_slim as slim
 
 DEFAULT_PADDING = 'SAME'
 
